@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="cssFile/output.css">
+        <link rel="stylesheet" href="node_modules/animate.css/animate.min.css">
+        <style>
+            *{
+                font-family: sans-serif;
+        }
+        #asideBar{
+            display: none;
+        }
+        .border-b-none{
+            border-bottom: none;
+        }
+        .animate__slow{
+            animation-duration: 5s;
+        }
+            
+    </style>
+</head>
+<html>
+<body class="bg-gray-800">
+    <header class="sm:w-[100%] md:w-[100%] lg:w-[90%]  bg-gray-900 block m-auto">
+    <div class="flex justify-between">
+        <div class=" aniDiv  flex hover:text-blue-500 text-[1.5rem] ml-[.5rem] mt-[.8rem] text-white ">
+            <label id="labelAnim" for="maharaj" class="sm:hidden ">⇉</label>
+            <input type="checkbox" id="maharaj" name="checkbox" class="hidden"></input>
+            
+            <div class="hidden md:block">
+                <div class="border rounded-full w-[50px]  border-blue-700 -mt-[.25rem]">
+                    <img src="P1img/google-logo.png" alt="profile_icon" class="rounded-full">
+                </div>
+            </div>
+
+            <div id="changeHead" class="text-blue-600 text-[1.5rem] rounded ml-[1rem]  md:block">
+                My Day
+                <p class="showDay text-[1rem] text-blue-700 "></p>
+            </div>    
+
+            
+            <div id="changeImportant" class="text-orange-600 text-[1.5rem] rounded ml-[1rem]  hidden">
+                Important
+                <p class="showImportant text-[1rem] text-orange-700"></p>
+            </div>    
+
+            <div id="changeTask" class="text-yellow-600 text-[1.5rem] rounded ml-[1rem]  hidden">
+                Tasks
+                <p class="showTask text-[1rem] text-yellow-700"></p>
+            </div>
+            
+        </div>
+
+        
+        <div class="flex text-white">
+            <div id="myDayMD" class="mr-[1.25rem] hidden md:block lg:hidden">
+                <div class="mt-[1.25rem] text-[1.25rem] hover:text-blue-500">▭
+                        <!-- my day -->
+                        <span class="myDayCounterMD">0</span>
+                    </div>
+                </div>     
+                <div id="importantMD" class="mr-[1.25rem] hidden md:block lg:hidden">
+                  <div class="mt-[1.25rem] text-[1.25rem] hover:text-blue-500">▭
+                      <!-- important -->
+                      <span class="importantCounterMD">0</span>
+                    </div>
+                </div>
+                
+                <div id="myTaskMD" class="mr-[1.25rem] hidden md:block lg:hidden">
+                    <div class="mt-[1.25rem] text-[1.25rem] hover:text-blue-500">▢
+                        <!-- task -->
+                        <span class="myTaskCounterMD">0</span>
+                        
+                    </div>
+                </div>
+                <div>
+                    <input id="search1" type="search" placeholder="search" class="bg-gray-600 border ml-[1rem] sm:ml-[2rem] mt-[1rem] p-1 outline-none rounded text-white border-blue-500 md:mr-[1.25rem] hidden md:block">
+                    
+                </div>
+            </div>
+            <div class="sm:hidden flex ">
+                <div class="text-white mt-[.5rem] mr-[.75rem]">
+                    <input type="search" placeholder="search" class="bg-gray-600 border ml-[1rem] sm:ml-[2rem] mt-[1rem] p-1 outline-none rounded text-white border-blue-500 md:mr-[1.25rem] md:hidden lg:hidden">
+                    
+                </div>
+                <div class="rounded-full w-[50px]  border-blue-700 mt-[.75rem] ">
+                    <img src="P1img/google-logo.png" alt="profile_icon" class="rounded-full">
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div id="statusHandler" class="hidden text-center   m-auto text-red-600  text-[1.5rem] fixed w-[90%]">
+            <span id="throwError" class="animate__animated animate__fadeOut animate__slower bg-gray-800"></span>
+        </div>
+</header>
+<main>
+    
+    <aside id="asideBar" class="animate__animated animate__slideInLeft border w-[60%] h-[80vh] bg-gray-700 fixed">
+        <div>
+            <div class="bg-gray-900 p-[1rem] flex justify-between">
+                <span class="text-orange-600 text-[1rem]">Vinod Kumar Manjhi</span>
+                <div class="text-[1rem] text-white">◷ </div>
+
+            </div>
+        <div  class="text-center">
+
+            <div id="myDaySM" class="flex text-white border p-2 hover:bg-gray-800 mt-5 rounded-md">
+                <span>🔴</span>
+                <p class="text-center w-[100%]"> My Day </p>
+                <span class="myDayCounterSM">0</span>
+            </div>
+
+            <div id="importantSM" class="flex text-white border p-[.5rem] hover:bg-gray-800 mt-[1.25rem] rounded-md">
+                <span>🟡</span>
+                <p class="text-center w-[100%]"> Important </p>
+                <span class="importantCounterSM">0</span>
+            </div>
+            
+            <div id="myTaskSM" class="flex text-white p-[.5rem] hover:bg-gray-800 border mt-[1.25rem] rounded-md">
+                <span>🟢</span>
+                <p class="text-center w-[100%]"> Task </p>
+                <span class="myTaskCounterSM">0</span>
+            </div>
+
+        </div>
+
+        </div>
+    </aside>
+    <!-- template of my day page -->
+    <section id="appendTask" class=" mt-[.5rem] h-[80vh] overflow-x-auto lg:h-[75vh]">
+
+        <!-- Template of addTask for feature updation-->
+        <!-- <div id="hover" class=" flex w-[95%] m-auto rounded bg-gray-600 hover:bg-[#4b5544] lg:w-[90%]">
+            <div class=" text-[1.5rem]  ml-[1.25rem]">
+                <b class="text-white hover:text-yellow-500">◯</b>
+            </div>
+            <div class=" text-white w-[85%] ml-[.5rem]">
+                <p class="text-[1rem]  w-[94%]">this is my task in the chat would you like to see that
+                </p>
+                <p class="text-[.8rem]">Tasks</p>
+            </div>
+            <div class=" text-white block text-center  w-[10%]">
+                <b class="hover:text-yellow-500 cursor-pointer">
+                ...
+                </b>
+            </div>
+        </div> -->
+
+
+
+          <div id="noTaskInMyDay" class="w-[90%] block m-auto  h-[50vh] justify-center text-center text-white ">
+            <div class="mt-[8rem]">
+                <div>
+                    <img id="goodImg" src="/P1img/timetableicon.png"  alt="greetImg" class=" block m-auto w-[15%] 
+                    md:w-[8%] lg:w-[5%] rounded-full">
+                    <div class="  m-auto  justify-center mt-[.2rem]">
+                        
+                    <p  class="text-[1rem]">
+                        <b class="showGood text-orange-600">Good Night</b> 
+                        <span class="showName text-blue-600">any task yet !</span>
+                    </p>
+                    <p title="this list will reset daily at 12am" class="showThought h-fit  text-white text-[.8rem]   ml-[1rem] cursor-default">
+                        Thought : if you beleive in yourself then there is nothing impossible for you.
+                    </p>
+                    </div>
+                </div>
+            </div>
+        </div> 
+
+
+    </section>
+    <!-- template of important task -->
+  
+    <section id="importantTask" class=" mt-[.5rem] h-[80vh] overflow-x-auto lg:h-[75vh] hidden">
+        
+       <div id="noTaskImportant" class=" w-[90%] block m-auto  h-[50vh] justify-center text-center text-orange-500 ">
+            <div class="mt-[8rem]">
+                <div>
+                    <img  src="/P1img/timetableicon.png"  alt="" class=" block m-auto w-[15%] 
+                    md:w-[8%] lg:w-[5%] rounded-full">
+                    <div class="  m-auto  justify-center mt-[.2rem]">
+                        
+                    <p class="text-[1rem]">No task in important</p>
+                    <p title="this list will reset daily at 12am" class=" h-fit  text-orange-600 text-[.8rem]   ml-[1rem] cursor-default">
+                        try to make some task in important to see them here
+                    </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- template of tasksPage -->
+    <section id="tasksPage" class=" mt-[.5rem] h-[80vh] overflow-x-auto lg:h-[75vh] hidden">
+       
+         <div id="noAnyTask" class=" w-[90%] block m-auto  h-[50vh] justify-center text-center text-orange-500 ">
+             <div class="mt-[8rem]">
+                 <div>
+                     <img  src="/P1img/timetableicon.png"  alt="" class=" block m-auto w-[15%] 
+                     md:w-[8%] lg:w-[5%] rounded-full">
+                     <div class="  m-auto  justify-center mt-[.2rem]">
+                         
+                     <p class="text-[1rem]">currently you don't have any task</p>
+                     <p title="this list will reset daily at 12am" class=" h-fit  text-orange-600 text-[.8rem]   ml-[1rem] cursor-default">
+                         click to add task to add one here
+                     </p>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </section>
+     
+ 
+
+    <section class="mt-[.5rem]  p-[.25rem] w-[90%] block m-auto rounded lg:w-[80%]  ">
+        <div class=" text-white justify-center w-fit  m-auto border rounded animate__animated animate__fadeInUp hidden lg:block border-blue-500 border-b-none">
+            <div id="myDayLG" class="mr-[1.25rem] inline-flex">
+                <div class=" text-[1.25rem] hover:text-blue-500">▭
+                    <!-- my day -->
+                    <span class="myDayCounterLG">0</span>
+                </div>
+            </div>     
+
+            <div id="importantLG" class="mr-[1.25rem] inline-flex">
+              <div class=" text-[1.25rem] hover:text-blue-500 ">▭
+                  <!-- important -->
+                  <span class="importantCounterLG">0</span>
+              </div>
+            </div>
+
+            <div id="myTaskLG" class="mr-[1.25rem] inline-flex">
+              <div class="text-[1.25rem] hover:text-blue-500">▢
+                <!-- task -->
+                  <span class="myTaskCounterLG">0</span>
+
+              </div>
+            </div>
+        </div>
+        <div id="inputCon" class="flex w-[100%] border border-blue-500">
+
+            <div class=" w-[100%]">
+                <input id="typeInput" type="text" placeholder="Add a Task" class="rounded-sm bg-gray-600 w-[100%] outline-none text-white p-[.4rem]">
+                <input id="typeImportant" type="text" placeholder="Add Task as important" class="rounded-sm bg-gray-600 w-[100%] outline-none text-white p-[.4rem] hidden">
+                <input id="typeTask" type="text" placeholder="Add Tasks" class="rounded-sm bg-gray-600 w-[100%] outline-none text-white p-[.4rem] hidden">
+
+            </div>
+
+            <div id="showInputOpt" class=" text-orange-600 bg-gray-600  flex gap-[1.25rem] rounded-sm">
+                <b class=" hover:tt-yellow-600 mt-[.25rem] text-[1.1rem] cursor-pointer"> ❄ </b>
+                <b class=" hover:text-yellow-600 mt-[.25rem] text-[1.1rem] cursor-pointer"> ◰ </b>
+                <b class=" hover:text-yellow-600 mt-[.25rem] text-[1.1rem] cursor-pointer"> ▣ </b>
+            </div>
+
+        </div>
+    </section>
+    
+    <div id="openAM" class="animate__animated animate__fadeIn animate__fast bg-gray-700  text-gray-100 rounded shadow-lg p-2  box-border m-auto  z-1000 max-w-[250px] absolute hidden ">
+        <div class="flex mb-2">
+            <p class="flex-grow text-center">Action Menu</p>
+            <span class="cursor-default" onclick="hideAm()">X</span>
+        </div>
+        <div class="flex bg-gray-600 hover:bg-[#4b5544]  border-opacity-5">
+            <div class=" w-[10%] p-0.5">▢</div>
+            <button class="text-[1rem] flex-grow p-1 rounded active:text-gray-300 MO">Mark as Important</button>
+        </div>
+        <div class="flex bg-gray-600 hover:bg-[#4b5544]  mt-1 border-opacity-5">
+            <div class=" w-[10%] p-0.5">▢</div>
+            <button class="text-[1rem] flex-grow  p-1 rounded active:text-gray-300">Mark as Completed</button>
+        </div>
+        <div class="flex bg-gray-600 hover:bg-[#4b5544]  mt-1 border-opacity-5">
+            <div class=" w-[10%] p-0.5">▢</div>
+            <button id="deleteTask" class="text-[1rem] flex-grow  p-1 rounded active:text-gray-300">Delete Task</button>
+        </div>
+      </div>
+
+      <div id="confirmation" class="animate__animated animate__fadeIn hidden m-auto absolute  h-max-[12%] border-opacity-20 bg-gray-700 rounded  w-[70%] ml-[17%] md:w-[45%] md:ml-[26%]">
+          <p class="text-[1rem] text-white text-center bg-[#06180f00]">Confirmation</p>
+        <div>  
+        <p id="deleteTextContent" class="text-white text-[.8rem] w-[95%] block m-auto mt-1"></p>
+        <hr class=" opacity-20">
+        </div>
+        <div class="text-center mt-1">
+            <button id="confirm" class=" text-white p-0.5  rounded bg-red-600 hover:bg-red-500">Confirm</button>
+            <button onclick="hideConfirmation()" class=" text-white p-0.5  rounded bg-gray-600 hover:bg-gray-500 ml-5">Cancel</button>
+        </div>
+      
+      </div>
+        
+</main>
+
+
+<script src="P1JS_files/index.js" defer></script>
+</body>
+</html>
+
+    
+
+

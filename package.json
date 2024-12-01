@@ -1,0 +1,14 @@
+{
+  "scripts": {
+    
+    "build": "npx tailwindcss -i ./cssFile/style.css -o ./cssFile/output.css --watch"
+  },
+  
+  
+  "devDependencies": {
+    "tailwindcss": "^3.4.15"
+  },
+  "dependencies": {
+    "animate.css": "^4.1.1"
+  }
+}
