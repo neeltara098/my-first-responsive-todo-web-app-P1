@@ -19,12 +19,36 @@
         .animate__slow{
             animation-duration: 5s;
         }
+        @media (max-width: 400px) {
+            #search11{
+                display: none;
+            }
+        }
+
+        #for_1{
+            box-shadow: 4px 3px 5px #2563eb;
+        }
+        #for_2{
+            box-shadow: 4px 3px 5px #2563eb;
+        }
+        #for_3{
+            box-shadow: 4px 3px 5px #2563eb;
+        }
+        #for_4{
+            box-shadow: 4px 3px 5px #2563eb;
+        }
+        #for_5{
+            box-shadow: 4px 3px 5px #2563eb;
+        }
+        #for_6{
+            box-shadow: 4px 3px 5px #2563eb;
+        }
             
     </style>
 </head>
 <html>
-<body class="bg-gray-800">
-    <header class="sm:w-[100%] md:w-[100%] lg:w-[90%]  bg-gray-900 block m-auto">
+<body class="bg-gray-800 ">
+    <header id="header" class="hidden sm:w-[100%] md:w-[100%] lg:w-[90%]  bg-gray-900  m-auto">
     <div class="flex justify-between">
         <div class=" aniDiv  flex hover:text-blue-500 text-[1.5rem] ml-[.5rem] mt-[.8rem] text-white ">
             <label id="labelAnim" for="maharaj" class="sm:hidden ">⇉</label>
@@ -32,7 +56,7 @@
             
             <div class="hidden md:block">
                 <div class="border rounded-full w-[50px]  border-blue-700 -mt-[.25rem]">
-                    <img src="P1img/google-logo.png" alt="profile_icon" class="rounded-full">
+                    <img id="gotProfile" src="P1img/icons8-profile-picture-80.png" alt="profile_icon" class="rounded-full">
                 </div>
             </div>
 
@@ -77,17 +101,17 @@
                     </div>
                 </div>
                 <div>
-                    <input id="search1" type="search" placeholder="search" class="bg-gray-600 border ml-[1rem] sm:ml-[2rem] mt-[1rem] p-1 outline-none rounded text-white border-blue-500 md:mr-[1.25rem] hidden md:block">
+                    <input id="search1" type="search" placeholder="search" class="bg-gray-600 border ml-[1rem] sm:ml-[2rem] mt-[1rem] p-1 outline-none rounded text-white border-blue-500 md:mr-[1.25rem] hidden md:block ">
                     
                 </div>
             </div>
             <div class="sm:hidden flex ">
                 <div class="text-white mt-[.5rem] mr-[.75rem]">
-                    <input type="search" placeholder="search" class="bg-gray-600 border ml-[1rem] sm:ml-[2rem] mt-[1rem] p-1 outline-none rounded text-white border-blue-500 md:mr-[1.25rem] md:hidden lg:hidden">
+                    <input id="search11" type="search" placeholder="search" class="bg-gray-600 border ml-[1rem] sm:ml-[2rem] mt-[1rem] p-1 outline-none rounded text-white border-blue-500 md:mr-[1.25rem] md:hidden lg:hidden ">
                     
                 </div>
                 <div class="rounded-full w-[50px]  border-blue-700 mt-[.75rem] ">
-                    <img src="P1img/google-logo.png" alt="profile_icon" class="rounded-full">
+                    <img id="smProfile" src="P1img/icons8-profile-picture-80.png" alt="profile_icon" class="rounded-full">
                     
                 </div>
                 
@@ -104,7 +128,7 @@
     <aside id="asideBar" class="animate__animated animate__slideInLeft border w-[60%] h-[80vh] bg-gray-700 fixed">
         <div>
             <div class="bg-gray-900 p-[1rem] flex justify-between">
-                <span class="text-orange-600 text-[1rem]">Vinod Kumar Manjhi</span>
+                <span id="setName" class="text-orange-600 text-[1rem]">Vinod </span>
                 <div class="text-[1rem] text-white">◷ </div>
 
             </div>
@@ -133,8 +157,9 @@
         </div>
     </aside>
     <!-- template of my day page -->
-    <section id="appendTask" class=" mt-[.5rem] h-[80vh] overflow-x-auto lg:h-[75vh]">
+    <section id="appendTask" class="hidden mt-[.5rem] h-[80vh] overflow-x-auto lg:h-[75vh]">
 
+        
         <!-- Template of addTask for feature updation-->
         <!-- <div id="hover" class=" flex w-[95%] m-auto rounded bg-gray-600 hover:bg-[#4b5544] lg:w-[90%]">
             <div class=" text-[1.5rem]  ml-[1.25rem]">
@@ -162,8 +187,8 @@
                     <div class="  m-auto  justify-center mt-[.2rem]">
                         
                     <p  class="text-[1rem]">
-                        <b class="showGood text-orange-600">Good Night</b> 
-                        <span class="showName text-blue-600">any task yet !</span>
+                        <b class="showGood text-orange-600"></b> 
+                        <span class="showName text-blue-600"></span>
                     </p>
                     <p title="this list will reset daily at 12am" class="showThought h-fit  text-white text-[.8rem]   ml-[1rem] cursor-default">
                         Thought : if you beleive in yourself then there is nothing impossible for you.
@@ -219,7 +244,7 @@
      
  
 
-    <section class="mt-[.5rem]  p-[.25rem] w-[90%] block m-auto rounded lg:w-[80%]  ">
+    <section id="addingSection" class="mt-[.5rem] hidden p-[.25rem] w-[90%]  m-auto rounded lg:w-[80%]  ">
         <div class=" text-white justify-center w-fit  m-auto border rounded animate__animated animate__fadeInUp hidden lg:block border-blue-500 border-b-none">
             <div id="myDayLG" class="mr-[1.25rem] inline-flex">
                 <div class=" text-[1.25rem] hover:text-blue-500">▭
@@ -290,10 +315,106 @@
             <button id="confirm" class=" text-white p-0.5  rounded bg-red-600 hover:bg-red-500">Confirm</button>
             <button onclick="hideConfirmation()" class=" text-white p-0.5  rounded bg-gray-600 hover:bg-gray-500 ml-5">Cancel</button>
         </div>
-      
       </div>
-        
-</main>
+      
+      
+      
+      
+      
+      <section id="hideSection" class="relative mt-16  border-green-600  w-[100%] h-[80vh] top-0 bg-gray-900 md:w-[60%] lg:w-[50%] block m-auto" >
+      <div class="flex text-white  text-2xl  pb-2">
+          <div class=" pr-3"></div>
+          <div class=" w-[25%] md:w-[21%] lg:w-[18%] ">Profile</div>
+      </div> <hr class="opacity-30">
+      <div class="mt-10">
+          <div class="text-center">
+              <input id="getProfile" type="image" src="/P1img/icons8-profile-picture-80.png" alt="profile-picture.png" class="w-[10%] rounded-full">
+      
+              <div id="toggle" class="text-white">Enter Your Name</div>
+              <div id="avatar" class="hidden">
+              <div  class="animate__animated animate__fadeIn w-[250px] m-auto flex flex-wrap text-center items-center bg-gray-600 rounded p-2 ">
+                 
+      
+                  <div title="Gentle Man" id="for_1" class="mt-2  bg-blue-500 max-w-[100px]  rounded ml-2 hover:bg-blue-800 ">
+                      <label for="option_1" class="flex">
+                          <img src="/P1img/profile_1.png" alt="profile_option_1" class="w-[35%] rounded-full">
+                          <div class="text-white rounded bg-blue-800 text-center mt-2 mb-0 h-fit">G-Man</div>
+                      </label>
+                      <input id="option_1" type="checkbox" class="hidden">
+                  </div>
+                  
+                  <div title="Young Boy" id="for_2" class="mt-2 bg-blue-500 max-w-[100px]  rounded ml-1 hover:bg-blue-800">
+                      <label for="option_2 " class="flex">
+                          <img src="/P1img/profile_2.png" alt="profile_option_2" class="w-[35%] rounded-full">
+                          <div class="text-white rounded bg-blue-800 text-center mt-2 mb-0 h-fit">Y-Boy</div>
+                      </label>
+                      <input  id="option_2" type="checkbox" class="hidden">
+                  </div>
+                  
+                  <div title="Old Man" id="for_3" class="mt-2 bg-blue-500 max-w-[100px] rounded ml-2 hover:bg-blue-800">
+                      <label for="option_3" class="flex">
+                          <img src="/P1img/profile_3.png" alt="profile_option_3" class="w-[35%] rounded-full">
+                          <div class="text-white rounded bg-blue-800 text-center mt-2 mb-0 h-fit">O-Man</div>
+                          
+                      </label>
+                      <input id="option_3" type="checkbox" class="hidden">
+                  </div>
+                  
+                  <div title="Gentle Women" id="for_4" class="mt-2 bg-blue-500 max-w-[100px] rounded ml-1 hover:bg-blue-800">
+                      <label for="option_4" class="flex">
+                          <img src="/P1img/profile_4.png" alt="profile_option_4" class="w-[35%] rounded-full">
+                          <div class="text-white rounded bg-blue-800 text-center mt-2 mb-0 h-fit">G-Wom</div>
+      
+                      </label>
+                      <input id="option_4" type="checkbox" class="hidden">
+                  </div>
+                  
+                  <div title="Old Women" id="for_5" class="mt-2 bg-blue-500 max-w-[100px] rounded ml-2 hover:bg-blue-800">
+                      <label for="option_5" class="flex">
+                          <img src="/P1img/profile_5.png" alt="profile_option_5" class="w-[35%] rounded-full">
+                          <div class="text-white rounded bg-blue-800 text-center mt-2 mb-0 h-fit">O-Wom</div>
+      
+                      </label>
+                      <input id="option_5" type="checkbox" class="hidden">
+                  </div>
+      
+                  <div title="Young Girl" id="for_6" class="mt-2 bg-blue-500 rounded max-w-[100px] ml-1 hover:bg-blue-800">
+                      <label for="option_6" class="flex">
+                          <img src="/P1img/profile_6.png" alt="profile_option_6" class="w-[35%] rounded-full">
+                          <div class="text-white rounded bg-blue-800 text-center mt-2 mb-0 h-fit">Y-Girl</div>
+                      </label>
+                      <input id="option_6" type="checkbox" class="hidden">
+                  </div>
+      
+              </div>
+              
+          </div>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+          <div class="text-orange-500 text-[1.2rem] mt-2">
+              <fieldset class=" box-border w-[90%] m-auto">
+                  <input autofocus id="beforeName" type="text" placeholder="Enter your name" class="bg-gray-600 w-[100%] rounded outline-none text-white">
+                  <p id="afterName" class="hidden text-center">Enter your name</p>
+              </fieldset>
+          </div>
+          <div id="ContinueAfterName" class=" mt-3 hidden">
+              <button id="registered" class="animate__animated animate__slideInLeft  text-center  block m-auto text-white w-[30%] rounded bg-gray-900 ">Continue</button>
+          </div>
+      </div>
+      
+      
+      </section>
+
+      
+</main>      
 
 
 <script src="P1JS_files/index.js" defer></script>
@@ -301,5 +422,6 @@
 </html>
 
     
+
 
 

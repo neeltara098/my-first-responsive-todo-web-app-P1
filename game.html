@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>challenge</title>
+    <script src="P1JS_files/practise.js" defer></script>
+    <link rel="stylesheet" href="node_modules/animate.css/animate.min.css">
+    <link rel="stylesheet" href="cssFile/output.css">
+
+    <style>
+
+
+        *{
+
+            margin: 0;
+            padding: 0;
+        }
+        
+        body{
+
+            background-color: rgba(86, 143, 145, 0.421);
+        }
+        #div1{
+            display: flex;
+            justify-content: space-between;
+            font-size: larger;
+        }
+        .menu{
+            margin-left: 1rem;
+            margin-top: 1rem;
+        }
+        .work{
+            margin-right: 1rem;
+            margin-top: 1rem;
+
+        }
+        .revo{
+            font-size: xx-large;
+            font-family: 'Agency FB';
+        }
+        header{
+            margin-top: .5rem;
+        }
+        .sec1{
+            height: 40vh;
+            width: 85%;
+            display: block;
+            margin: auto;
+            margin-top: 4rem;
+        }
+        .brand{
+            font-size: 5rem;
+            text-align: center;
+            cursor: default;
+            box-sizing: border-box;
+        }
+        .brand3{
+            font-family: fantasy;
+            height: 100%;
+            
+        }
+        .brand2{
+            font-family: Arial Rounded Mt;
+        }
+        .brand1{
+            font-family: Algerian;
+            box-sizing: border-box;
+            box-shadow: aliceblue 3px 5px 10px 30px;
+            color: rgb(38, 38, 70);
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div id="div1">
+            <div class="menu">{ Menu }</div>
+            <div class="revo">OurRevolution</div>
+            <div class="work">{ Work }</div>
+        </div>
+    </header>
+    <main>
+        <section class="sec1">
+            <div>
+                <p class="brand brand1">We Believe</p>
+                <p class="brand brand2">Brands Shape The</p>
+                <p class="brand brand3">Future</p>
+            </div>
+
+            <!-- <div class="absolute border border-black w-fit h-fit overflow-hidden bg-red-600">
+                <img src="P1img/profile_1.png" alt="picture-only" class="rounded-full" >
+                <p class="text-2xl bg-blue-600 border">I Love you</p>
+            </div> -->
+        </section>
+    </main>
+
+</body>
+</html>
+// Throttle function
+function throttle(func, limit) {
+  let inThrottle;
+  return function() {
+    const args = arguments;
+    const context = this;
+    if (!inThrottle) {
+      func.apply(context, args);
+      inThrottle = true;
+      setTimeout(() => inThrottle = false, limit);
+    }
+  };
+}
+
+// Function to be throttled
+const logMessage = () => console.log('Button clicked!');
+
+// Get the button element
+const button = document.getElementById('myButton');
+
+// Attach throttled function to click event
+button.addEventListener('click', throttle(logMessage, 2000));
